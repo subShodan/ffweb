@@ -23,3 +23,18 @@ new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
   .fireHttpServer()
   .catch(console.error)
+  .then(listening)
+
+  function listening() {
+    console.log(`Demo server available on http://localhost:3333`);
+    if (process.env.NODE_ENV == 'development') {
+      browserSync({
+        files: ['./**/*.{html,js,css,edge}'],
+        online: false,
+        open: false,
+        port: 3333 + 1,
+        proxy: 'localhost:' + '3333',
+        ui: false
+      });
+    }
+  }
