@@ -18,7 +18,7 @@
 */
 
 const { Ignitor } = require('@adonisjs/ignitor')
-
+const browserSync = require('browser-sync')
 new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
   .fireHttpServer()
